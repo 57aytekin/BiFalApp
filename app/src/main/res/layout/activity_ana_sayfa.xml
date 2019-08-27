@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    tools:context="com.example.bifal.activity.anaSayfa.AnaSayfaActivity">
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <include android:id="@+id/AppBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/anasayfa_top"/>
+
+            <ImageView
+                android:id="@+id/ic_note"
+                android:src="@drawable/ic_note"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@id/AppBar"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <TextView
+                android:id="@+id/textview"
+                android:text="Hoşgeldin "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorWhite"
+                android:textSize="16sp"
+                android:layout_marginTop="50dp"
+                android:layout_marginStart="70dp"
+                app:layout_constraintTop_toTopOf="@id/ic_note"
+                app:layout_constraintStart_toStartOf="@id/ic_note"/>
+
+            <TextView
+                android:id="@+id/tvAnaSayfaName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorWhite"
+                android:text="USER"
+                android:textSize="16sp"
+                app:layout_constraintTop_toTopOf="@id/textview"
+                app:layout_constraintStart_toEndOf="@id/textview"/>
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorWhite"
+                android:text="Hemen bir kahve iç ve falına bakalım."
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@id/textview"
+                app:layout_constraintStart_toStartOf="@id/textview"/>
+
+            <LinearLayout
+                android:id="@+id/linear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="50dp"
+                app:layout_constraintTop_toBottomOf="@id/ic_note">
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="10dp"
+                    app:cardBackgroundColor="@color/colorRectangle"
+                    app:cardPreventCornerOverlap="false">
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <Button
+                            android:id="@+id/btnKahveFali"
+                            android:background="@drawable/cardview_back"
+                            android:layout_width="match_parent"
+                            android:layout_marginTop="20dp"
+                            android:drawableTop="@drawable/ic_coffee"
+                            android:text="Kahve Falı"
+                            android:textColor="@color/colorWhite"
+                            android:layout_height="match_parent" />
+                    </android.support.constraint.ConstraintLayout>
+
+                </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
+                    app:cardBackgroundColor="@color/colorRectangle"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    app:cardCornerRadius="10dp"
+                    android:layout_weight="1">
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <Button
+                            android:id="@+id/btnFallarim"
+                            android:background="@drawable/cardview_back"
+                            android:layout_width="match_parent"
+                            android:layout_marginTop="20dp"
+                            android:drawableTop="@drawable/ic_fallarim"
+                            android:text="Fallarım"
+                            android:textColor="@color/colorWhite"
+                            android:layout_height="match_parent" />
+                    </android.support.constraint.ConstraintLayout>
+                </android.support.v7.widget.CardView>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="50dp"
+                app:layout_constraintTop_toBottomOf="@id/linear">
+                <android.support.v7.widget.CardView
+                    app:cardBackgroundColor="@color/colorRectangle"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    app:cardCornerRadius="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1">
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <Button
+                            android:id="@+id/btnKrediAl"
+                            android:background="@drawable/cardview_back"
+                            android:layout_width="match_parent"
+                            android:layout_marginTop="20dp"
+                            android:drawableTop="@drawable/ic_kredi_al"
+                            android:text="Kredi Al"
+                            android:textColor="@color/colorWhite"
+                            android:layout_height="match_parent"/>
+                    </android.support.constraint.ConstraintLayout>
+
+                </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
+                    app:cardBackgroundColor="@color/colorRectangle"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    app:cardCornerRadius="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1">
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <Button
+                            android:id="@+id/btnProfile"
+                            android:background="@drawable/cardview_back"
+                            android:layout_width="match_parent"
+                            android:layout_marginTop="20dp"
+                            android:drawableTop="@drawable/ic_profile"
+                            android:text="Profil"
+                            android:textColor="@color/colorWhite"
+                            android:layout_height="match_parent"/>
+                    </android.support.constraint.ConstraintLayout>
+                </android.support.v7.widget.CardView>
+            </LinearLayout>
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+</android.support.constraint.ConstraintLayout>

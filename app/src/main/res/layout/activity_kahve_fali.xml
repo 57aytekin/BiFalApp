@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    tools:context=".activity.kahveFali.KahveFaliActivity">
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorWhite"
+        android:textSize="16sp"
+        android:text="Fincan fotograflarını yükle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="30dp"/>
+    <LinearLayout
+        android:id="@+id/linear"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="@id/text"
+        app:layout_constraintTop_toBottomOf="@id/text"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:id="@+id/btnFoto1"
+            android:background="@drawable/ic_camera"
+            android:layout_marginEnd="10dp"
+            android:scaleType="fitXY"
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
+        <ImageView
+            android:id="@+id/btnFoto2"
+            android:background="@drawable/ic_camera"
+            android:layout_marginEnd="10dp"
+            android:scaleType="fitXY"
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
+        <ImageView
+            android:id="@+id/btnFoto3"
+            android:background="@drawable/ic_camera"
+            android:scaleType="fitXY"
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnNiyetime"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:text="Niyetime İç"
+        android:textAllCaps="false"
+        android:drawableRight="@drawable/ic_niyetime"
+        app:layout_constraintTop_toBottomOf="@id/linear"
+        app:layout_constraintStart_toStartOf="@id/linear"
+        app:layout_constraintEnd_toEndOf="@id/linear"/>
+
+    <EditText
+        android:id="@+id/etKahveFaliAdSoyad"
+        android:layout_width="225dp"
+        android:layout_height="40dp"
+        android:background="@drawable/cardview_back"
+        android:ems="10"
+        android:hint="Ad Soyad"
+        android:inputType="textPersonName"
+        android:padding="10dp"
+        android:textColor="@color/colorWhite"
+        android:textColorHint="@color/colorEdittext"
+        android:layout_marginTop="20dp"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnNiyetime"/>
+
+    <Spinner
+        android:id="@+id/spKahveFaliIsDurumu"
+        android:layout_width="225dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/cardview_back"
+        android:dropDownSelector="@drawable/ic_down"
+        android:padding="10dp"
+        app:layout_constraintStart_toStartOf="@id/etKahveFaliAdSoyad"
+        app:layout_constraintTop_toBottomOf="@id/etKahveFaliAdSoyad" />
+
+    <Spinner
+        android:id="@+id/spKahveFaliMedeniD"
+        android:layout_width="225dp"
+        android:layout_height="40dp"
+        android:padding="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/cardview_back"
+        app:layout_constraintTop_toBottomOf="@id/spKahveFaliIsDurumu"
+        app:layout_constraintStart_toStartOf="@id/spKahveFaliIsDurumu"/>
+    <Spinner
+        android:id="@+id/spKahveFaliIliski"
+        android:layout_width="225dp"
+        android:layout_height="40dp"
+        android:padding="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/cardview_back"
+        app:layout_constraintTop_toBottomOf="@id/spKahveFaliMedeniD"
+        app:layout_constraintStart_toStartOf="@id/spKahveFaliMedeniD"/>
+
+    <EditText
+        android:id="@+id/etKahveFaliYas"
+        android:layout_width="225dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textColorHint="@color/colorEdittext"
+        android:textColor="@color/colorWhite"
+        android:hint="Yaş"
+        android:padding="10dp"
+        android:focusable="false"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/cardview_back"
+        app:layout_constraintTop_toBottomOf="@id/spKahveFaliIliski"
+        app:layout_constraintStart_toStartOf="@id/spKahveFaliIliski"/>
+
+    <Button
+        android:id="@+id/btnKahveFaliGonder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/button_background"
+        android:text="Gönder"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etKahveFaliYas" />
+
+</android.support.constraint.ConstraintLayout>

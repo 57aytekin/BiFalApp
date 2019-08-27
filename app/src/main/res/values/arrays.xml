@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="welcomeText">
+        <item>HOŞGELDİNİZ</item>
+        <item>Hergün ücretsiz 1 fal hakkı</item>
+        <item>Kontrol edilen fincan resimleri ile\nsizi şaşırtacak fal yorumları..</item>
+        <item>O zaman hadi başlayalım</item>
+    </string-array>
+</resources>

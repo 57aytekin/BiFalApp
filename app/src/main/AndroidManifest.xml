@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.bifal">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.MEDIA_CONTENT_CONTROL" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true">
+        <activity android:name=".activity.FalScreenActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activity.KahveHakkiActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activity.YorumlaniyorActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activity.ProfileActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activity.KrediAlActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activity.fallarim.FallarimActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activity.kahveFali.KahveFaliActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activity.main.MainActivity"
+            android:theme="@style/WelcomeTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.anaSayfa.AnaSayfaActivity"
+            android:theme="@style/WelcomeTheme" />
+        <activity
+            android:name="com.facebook.CustomTabActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="@string/fb_login_protocol_scheme" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name" />
+    </application>
+
+</manifest>

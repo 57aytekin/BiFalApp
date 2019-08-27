@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    tools:context=".activity.ProfileActivity">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/ivProfileResim"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/com_facebook_profile_picture_blank_square"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:id="@+id/ivProfilePencil"
+        android:src="@drawable/ic_pencil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/ivProfileResim"/>
+
+    <EditText
+        android:id="@+id/etProfileAd"
+        android:layout_width="225dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="40dp"
+        android:padding="10dp"
+        android:textColorHint="@color/colorEdittext"
+        android:hint="Ad"
+        android:textColor="@color/colorWhite"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:background="@drawable/cardview_back"
+        app:layout_constraintTop_toBottomOf="@id/ivProfileResim"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <EditText
+        android:id="@+id/etProfileSoyad"
+        android:layout_width="225dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textColorHint="@color/colorEdittext"
+        android:textColor="@color/colorWhite"
+        android:hint="Soyad"
+        android:padding="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/cardview_back"
+        app:layout_constraintTop_toBottomOf="@id/etProfileAd"
+        app:layout_constraintStart_toStartOf="@id/etProfileAd"/>
+
+    <EditText
+        android:id="@+id/etProfileGmail"
+        android:layout_width="225dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:padding="10dp"
+        android:inputType="textPersonName"
+        android:textColorHint="@color/colorEdittext"
+        android:textColor="@color/colorWhite"
+        android:hint="Gmail"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/cardview_back"
+        app:layout_constraintTop_toBottomOf="@id/etProfileSoyad"
+        app:layout_constraintStart_toStartOf="@id/etProfileSoyad"/>
+
+    <Button
+        android:id="@+id/btnProfileGuncelle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/button_background"
+        android:text="Güncelle"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etProfileGmail" />
+
+</android.support.constraint.ConstraintLayout>
