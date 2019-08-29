@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.example.bifal.api.ApiClient;
 import com.example.bifal.api.ApiInterface;
+import com.example.bifal.model.Fal;
 import com.example.bifal.model.User;
 
 import java.util.List;
@@ -66,6 +67,37 @@ public class AnaSayfaPresenter {
             public void onFailure(Call<List<User>> call, Throwable t) {
                 view.onRequestError(t.getMessage());
                 view.hideReflesh();
+            }
+        });
+    }
+
+    void update_kahve_hakki(int id, int kahve_hakki){
+        ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
+        Call<Void> call = apiInterface.updateKahveHakki(id, kahve_hakki);
+        call.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+
+            }
+        });
+    }
+    void update_gun_kontrol(int id, int kahve_hakki){
+        ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
+        Call<Void> call = apiInterface.update_gun_kontrol(id, kahve_hakki);
+        call.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+
             }
         });
     }

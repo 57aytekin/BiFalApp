@@ -72,4 +72,21 @@ public interface ApiInterface {
       @Field("id") int id,
       @Field("kahve_hakki") int kahve_hakki
     );
+    @FormUrlEncoded
+    @POST("update_gun_kontrol.php")
+    Call<Void> update_gun_kontrol(
+            @Field("id") int id,
+            @Field("kahve_hakki") int kahve_hakki
+    );
+    @FormUrlEncoded
+    @POST("update_token.php")
+    Call<Void> update_token(
+            @Field("id") int id,
+            @Field("token") String token
+    );
+    @FormUrlEncoded
+    @POST("push_notification.php")
+    Call<Void> push_notifi(
+            @Field("id") int id
+    );
 }

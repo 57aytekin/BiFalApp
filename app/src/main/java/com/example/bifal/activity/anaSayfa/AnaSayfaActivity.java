@@ -1,14 +1,15 @@
 package com.example.bifal.activity.anaSayfa;
 
 import android.content.Intent;
-import android.os.Handler;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.bifal.R;
 import com.example.bifal.activity.KrediAlActivity;
@@ -16,8 +17,12 @@ import com.example.bifal.activity.ProfileActivity;
 import com.example.bifal.activity.fallarim.FallarimActivity;
 import com.example.bifal.activity.kahveFali.KahveFaliActivity;
 import com.example.bifal.manager.SessionManager;
+import com.example.bifal.model.Fal;
 import com.example.bifal.model.User;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -43,8 +48,6 @@ public class AnaSayfaActivity extends AppCompatActivity implements View.OnClickL
         HashMap<String, String> user = sessionManager.userDetail();
         String name = user.get(SessionManager.FIRST_NAME);
         final String web_id = user.get(SessionManager.USERID);
-        String lasname = user.get(SessionManager.LAST_NAME);
-        String gmail = user.get(SessionManager.EMAIL);
 
         presenter.getUser(web_id);
         tvUsername.setText(name);
@@ -55,6 +58,28 @@ public class AnaSayfaActivity extends AppCompatActivity implements View.OnClickL
                 presenter.getUser(web_id);
             }
         });
+
+    }
+
+    public void gunGecmisMi(String tarih, int id){
+        SimpleDateFormat bicim = new SimpleDateFormat("dd.M.yyyy hh:mm:ss");
+
+        if(tarih != null){
+            try {
+                Date date1 = bicim.parse(tarih);
+                Date bugun = new Date();
+                bicim.format(bugun);
+                long difference = Math.abs(date1.getTime() - bugun.getTime());
+
+                long gun = difference / (1000*60*60*24);
+                if(gun >= 1){
+                    presenter.update_gun_kontrol(id, 1);
+                }
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        }
+
     }
 
     public void uiElement(){
@@ -127,6 +152,13 @@ public class AnaSayfaActivity extends AppCompatActivity implements View.OnClickL
         tvCointCount.setText(""+coin);
         String id = ""+list.get(0).getId();
         sessionManager.create_id(id);
+        String tarih = list.get(0).getGun_kontrol();
+        gunGecmisMi(tarih, list.get(0).getId());
+    }
+
+    @Override
+    public void onGetFals(List<Fal> fals) {
+
     }
 
     @Override

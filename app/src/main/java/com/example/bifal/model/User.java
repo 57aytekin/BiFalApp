@@ -38,9 +38,20 @@ public class User {
     @SerializedName("coin")
     private int coin;
     @Expose
+    @SerializedName("gun_kontrol")
+    private String gun_kontrol;
+    @Expose
     @SerializedName("success") private boolean success;
     @Expose
     @SerializedName("message") private String message;
+
+    public String getGun_kontrol() {
+        return gun_kontrol;
+    }
+
+    public void setGun_kontrol(String gun_kontrol) {
+        this.gun_kontrol = gun_kontrol;
+    }
 
     public boolean isSuccess() {
         return success;

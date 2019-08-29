@@ -1,8 +1,9 @@
 package com.example.bifal.activity;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.bifal.R;
 import com.example.bifal.activity.anaSayfa.AnaSayfaActivity;

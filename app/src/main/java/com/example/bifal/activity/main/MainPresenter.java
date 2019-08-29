@@ -2,6 +2,8 @@ package com.example.bifal.activity.main;
 
 import android.util.Log;
 
+import androidx.annotation.NonNull;
+
 import com.example.bifal.api.ApiClient;
 import com.example.bifal.api.ApiInterface;
 import com.example.bifal.model.User;
@@ -41,20 +43,18 @@ public class MainPresenter {
             }
         });
     }
-    void getUser(String web_id){
-        view.showProgress();
+    void getUser(final String web_id, final String name, final String surname, final String gmail, final int kahve_hakki, final int coin){
 
         ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
         Call<List<User>> call = apiInterface.getUser(web_id);
         call.enqueue(new Callback<List<User>>() {
             @Override
-            public void onResponse(Call<List<User>> call, Response<List<User>> response) {
-
+            public void onResponse(@NonNull Call<List<User>> call, @NonNull Response<List<User>> response) {
+                view.onGetResult(response.body());
             }
 
             @Override
             public void onFailure(Call<List<User>> call, Throwable t) {
-
             }
         });
     }

@@ -11,7 +11,6 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.http.Field;
 
 public class KahveFaliPresenter {
 
@@ -109,6 +108,21 @@ public class KahveFaliPresenter {
     void update_kahve_hakki(int id, int kahve_hakki){
         ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
         Call<Void> call = apiInterface.updateKahveHakki(id, kahve_hakki);
+        call.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+
+            }
+        });
+    }
+    void update_token(int id, String token){
+        ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
+        Call<Void> call = apiInterface.update_token(id, token);
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {

@@ -1,8 +1,8 @@
 package com.example.bifal.activity;
 
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -12,9 +12,10 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.bifal.R;
-import com.example.bifal.activity.anaSayfa.AnaSayfaActivity;
-import com.example.bifal.activity.fallarim.FallarimActivity;
 import com.example.bifal.activity.main.MainActivity;
 import com.example.bifal.manager.SessionManager;
 import com.facebook.login.LoginManager;
@@ -40,6 +41,7 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         uiElement();
         sessionManager = new SessionManager(getApplicationContext());
         HashMap<String, String > user = sessionManager.userDetail();
@@ -47,9 +49,20 @@ public class ProfileActivity extends AppCompatActivity {
         etSoyad.setText(user.get(sessionManager.LAST_NAME));
         etGmail.setText(user.get(sessionManager.EMAIL));
         Picasso.get().load(user.get(sessionManager.USERPHOTO)).into(ivProfilePhoto);
+
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
     }
 
     public void uiElement(){
+        final Drawable backArrow = getResources().getDrawable(R.drawable.ic_back_white);
+        backArrow.setColorFilter(getResources().getColor(R.color.colorWhite), PorterDuff.Mode.SRC_ATOP);
+        getSupportActionBar().setHomeAsUpIndicator(backArrow);
+
         ivProfilePhoto = findViewById(R.id.ivProfileResim);
         ivPencil = findViewById(R.id.ivProfilePencil);
         etAd = findViewById(R.id.etProfileAd);
@@ -74,7 +87,6 @@ public class ProfileActivity extends AppCompatActivity {
                 //cikiş
                 Toast.makeText(this, "Çıkış yapıldi", Toast.LENGTH_SHORT).show();
                 googleLogout();
-                facebookLogout();
                 sessionManager.logOut();
                 break;
         }
@@ -95,12 +107,6 @@ public class ProfileActivity extends AppCompatActivity {
                     }
                 });
 
-    }
-    public void facebookLogout(){
-        LoginManager.getInstance().logOut();
-        Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
-        startActivity(intent);
-        finish();
     }
 
 

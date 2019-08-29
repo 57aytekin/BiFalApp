@@ -8,11 +8,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
-import android.provider.MediaStore;
-import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Base64;
 import android.view.View;
 import android.view.animation.Animation;
@@ -27,12 +24,18 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.bifal.activity.KahveHakkiActivity;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+
 import com.example.bifal.R;
-import com.example.bifal.activity.YorumlaniyorActivity;
-import com.example.bifal.activity.anaSayfa.AnaSayfaActivity;
+import com.example.bifal.activity.KahveHakkiActivity;
+import com.example.bifal.activity.yorumlaniyor.YorumlaniyorActivity;
 import com.example.bifal.manager.SessionManager;
 import com.example.bifal.model.User;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
 import com.squareup.picasso.Picasso;
 
 import java.io.ByteArrayOutputStream;
@@ -328,12 +331,18 @@ public class KahveFaliActivity extends AppCompatActivity implements View.OnClick
                 Random random = new Random();
                 int randonSayi = random.nextInt((3-1)+1)+1;
 
-                int id = onGetResult.get(0).getId();
+                final int id = onGetResult.get(0).getId();
                 String name1 = onGetResult.get(0).getName()+"1";
                 String name2 = onGetResult.get(0).getName()+"2";
                 String name3 = onGetResult.get(0).getName()+"3";
-
-
+                FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(KahveFaliActivity.this, new OnSuccessListener<InstanceIdResult>() {
+                    @Override
+                    public void onSuccess(InstanceIdResult instanceIdResult) {
+                        String token = instanceIdResult.getToken();
+                        System.out.println("TOKEN===>>"+token);
+                        presenter.update_token(id, token);
+                    }
+                });
 
                 if(kontrolEt()){
                     if(photoAuto == 1){
